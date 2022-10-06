@@ -1,9 +1,9 @@
 "use strict";
 const page = document.querySelector(".notifictaion_section");
-//const privateNotification = document.querySelector(".private_notification");
 const unreadNotificationCount = document.querySelector(".unread_count");
 const list = document.querySelector(".list");
 const markAllAsRead = document.querySelector(".mark-all-as-read-btn");
+
 //drop down menu
 const addNotificationBtn = document.querySelector(".add_notification_btn");
 const privateNotificationBtn = document.querySelector(".private_btn ");
@@ -78,6 +78,7 @@ const leftGroupSubmitBtn = document.querySelector(".left_group_submit");
 
 let notificationCount = 0;
 let readedNotification = [];
+
 function fetchJson(path) {
   try {
     fetch(path)
@@ -91,6 +92,18 @@ function fetchJson(path) {
   } catch (err) {
     alert(err);
   }
+}
+
+async function postData(url, data) {
+  await fetch(url, {
+    method: "POST",
+    cache: "no-cache",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  }).catch((e) => alert(e));
 }
 
 function renderNotificationInUI(jsonData) {
@@ -240,6 +253,121 @@ function renderNotificationDetails(notificationDetails) {
   }
 }
 
+function makeReadedNotification(usersData) {
+  usersData?.map((usersDatum) => {
+    if (document.querySelector(`#follow${usersDatum.id}`)) {
+      document
+        .querySelector(`#follow${usersDatum.id}`)
+        .addEventListener("click", () => {
+          if (
+            !readedNotification.includes(`reacted${usersDatum.id}`) &&
+            notificationCount > 0
+          ) {
+            readedNotification.push(`reacted${usersDatum.id}`);
+            unreadNotificationCount.textContent = --notificationCount;
+          }
+          document.querySelector(
+            `#follow${usersDatum.id}`
+          ).style.backgroundColor = "white";
+          document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
+        });
+    }
+    if (document.querySelector(`#reacted${usersDatum.id}`)) {
+      document
+        .querySelector(`#reacted${usersDatum.id}`)
+        .addEventListener("click", () => {
+          if (
+            !readedNotification.includes(`reacted${usersDatum.id}`) &&
+            notificationCount > 0
+          ) {
+            readedNotification.push(`reacted${usersDatum.id}`);
+            unreadNotificationCount.textContent = --notificationCount;
+          }
+          document.querySelector(
+            `#reacted${usersDatum.id}`
+          ).style.backgroundColor = "white";
+          document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
+        });
+    }
+    if (document.querySelector(`#left_group${usersDatum.id}`)) {
+      document
+        .querySelector(`#left_group${usersDatum.id}`)
+        .addEventListener("click", () => {
+          if (
+            !readedNotification.includes(`left_group${usersDatum.id}`) &&
+            notificationCount > 0
+          ) {
+            readedNotification.push(`left_group${usersDatum.id}`);
+            unreadNotificationCount.textContent = --notificationCount;
+          }
+          document.querySelector(
+            `#left_group${usersDatum.id}`
+          ).style.backgroundColor = "white";
+          document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
+        });
+    }
+    if (
+      document.querySelector(`#join_group${usersDatum.id}`) &&
+      notificationCount > 0
+    ) {
+      document
+        .querySelector(`#join_group${usersDatum.id}`)
+        .addEventListener("click", () => {
+          if (
+            !readedNotification.includes(`join_group${usersDatum.id}`) &&
+            notificationCount > 0
+          ) {
+            readedNotification.push(`join_group${usersDatum.id}`);
+            unreadNotificationCount.textContent = --notificationCount;
+          }
+          document.querySelector(
+            `#join_group${usersDatum.id}`
+          ).style.backgroundColor = "white";
+          document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
+        });
+    }
+    if (document.querySelector(`#comment${usersDatum.id}`)) {
+      document
+        .querySelector(`#comment${usersDatum.id}`)
+        .addEventListener("click", () => {
+          if (
+            !readedNotification.includes(`comment${usersDatum.id}`) &&
+            notificationCount > 0
+          ) {
+            readedNotification.push(`comment${usersDatum.id}`);
+            unreadNotificationCount.textContent = --notificationCount;
+          }
+          document.querySelector(
+            `#comment${usersDatum.id}`
+          ).style.backgroundColor = "white";
+          document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
+        });
+    }
+    if (document.querySelector(`#private${usersDatum.id}`)) {
+      document
+        .querySelector(`#private${usersDatum.id}`)
+        .addEventListener("click", () => {
+          if (
+            !readedNotification.includes(`private${usersDatum.id}`) &&
+            notificationCount > 0
+          ) {
+            readedNotification.push(`private${usersDatum.id}`);
+            unreadNotificationCount.textContent = --notificationCount;
+          }
+          document.querySelector(
+            `#private${usersDatum.id}`
+          ).style.backgroundColor = "white";
+          document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
+        });
+    }
+  });
+}
+
+function init() {
+  fetchJson("http://localhost:3000/users");
+}
+init();
+
 // Event listerners
 addNotificationBtn.addEventListener("click", function (e) {
   e.preventDefault();
@@ -364,133 +492,6 @@ joinGroupSubmitBtn.addEventListener("click", function (e) {
   postData("http://localhost:3000/users", joinGroupdata);
   joinGroupFormContainer.classList.toggle("hidden");
 });
-
-function init() {
-  fetchJson("http://localhost:3000/users");
-}
-init();
-
-async function postData(url, data) {
-  await fetch(url, {
-    method: "POST",
-    cache: "no-cache",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  }).catch((e) => alert(e));
-}
-
-function makeReadedNotification(usersData) {
-  usersData?.map((usersDatum) => {
-    if (document.querySelector(`#follow${usersDatum.id}`)) {
-      document
-        .querySelector(`#follow${usersDatum.id}`)
-        .addEventListener("click", () => {
-          if (
-            !readedNotification.includes(`reacted${usersDatum.id}`) &&
-            notificationCount > 0
-          ) {
-            readedNotification.push(`reacted${usersDatum.id}`);
-            unreadNotificationCount.textContent = --notificationCount;
-          }
-          document.querySelector(
-            `#follow${usersDatum.id}`
-          ).style.backgroundColor = "white";
-          document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
-        });
-    }
-    if (document.querySelector(`#reacted${usersDatum.id}`)) {
-      document
-        .querySelector(`#reacted${usersDatum.id}`)
-        .addEventListener("click", () => {
-          if (
-            !readedNotification.includes(`reacted${usersDatum.id}`) &&
-            notificationCount > 0
-          ) {
-            readedNotification.push(`reacted${usersDatum.id}`);
-            unreadNotificationCount.textContent = --notificationCount;
-          }
-          document.querySelector(
-            `#reacted${usersDatum.id}`
-          ).style.backgroundColor = "white";
-          document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
-        });
-    }
-    if (document.querySelector(`#left_group${usersDatum.id}`)) {
-      document
-        .querySelector(`#left_group${usersDatum.id}`)
-        .addEventListener("click", () => {
-          if (
-            !readedNotification.includes(`left_group${usersDatum.id}`) &&
-            notificationCount > 0
-          ) {
-            readedNotification.push(`left_group${usersDatum.id}`);
-            unreadNotificationCount.textContent = --notificationCount;
-          }
-          document.querySelector(
-            `#left_group${usersDatum.id}`
-          ).style.backgroundColor = "white";
-          document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
-        });
-    }
-    if (
-      document.querySelector(`#join_group${usersDatum.id}`) &&
-      notificationCount > 0
-    ) {
-      document
-        .querySelector(`#join_group${usersDatum.id}`)
-        .addEventListener("click", () => {
-          if (
-            !readedNotification.includes(`join_group${usersDatum.id}`) &&
-            notificationCount > 0
-          ) {
-            readedNotification.push(`join_group${usersDatum.id}`);
-            unreadNotificationCount.textContent = --notificationCount;
-          }
-          document.querySelector(
-            `#join_group${usersDatum.id}`
-          ).style.backgroundColor = "white";
-          document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
-        });
-    }
-    if (document.querySelector(`#comment${usersDatum.id}`)) {
-      document
-        .querySelector(`#comment${usersDatum.id}`)
-        .addEventListener("click", () => {
-          if (
-            !readedNotification.includes(`comment${usersDatum.id}`) &&
-            notificationCount > 0
-          ) {
-            readedNotification.push(`comment${usersDatum.id}`);
-            unreadNotificationCount.textContent = --notificationCount;
-          }
-          document.querySelector(
-            `#comment${usersDatum.id}`
-          ).style.backgroundColor = "white";
-          document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
-        });
-    }
-    if (document.querySelector(`#private${usersDatum.id}`)) {
-      document
-        .querySelector(`#private${usersDatum.id}`)
-        .addEventListener("click", () => {
-          if (
-            !readedNotification.includes(`private${usersDatum.id}`) &&
-            notificationCount > 0
-          ) {
-            readedNotification.push(`private${usersDatum.id}`);
-            unreadNotificationCount.textContent = --notificationCount;
-          }
-          document.querySelector(
-            `#private${usersDatum.id}`
-          ).style.backgroundColor = "white";
-          document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
-        });
-    }
-  });
-}
 
 markAllAsRead.addEventListener("click", function () {
   for (let i = 1; i <= notificationCount; i++) {
