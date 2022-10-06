@@ -1,20 +1,18 @@
-.form {
-  font-size: 16px;
-  font-family: Plus Jakarta Sans;
-  font-weight: 800;
-  display: flex;
-  flex-direction: column;
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+  z-index: 100;
+  transition: all 0.5s;
 }
-.form label {
-  margin-right: 3vw;
-}
-.form div {
-  font: 16px;
-  color: hsl(219deg, 12%, 42%);
-}
-.form div input {
-  margin: 30px 10px;
-  padding: 10px 20px;
+.overlay .hidden {
+  visibility: hidden;
+  opacity: 0;
 }
 
 .form_container {
@@ -24,14 +22,35 @@
   transform: translate(-50%);
   background-color: hsl(211deg, 68%, 94%);
   border-radius: 9px;
-  width: 42vw;
-  height: 70%;
+  width: 45vw;
+  height: 80%;
   display: flex;
   justify-content: center;
+  align-items: center;
   transition: all 0.5s;
 }
-
-.close_btn {
+.form_container .form {
+  font-size: 16px;
+  font-family: Plus Jakarta Sans;
+  font-weight: 800;
+  display: flex;
+  flex-direction: column;
+}
+.form_container .form div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font: 16px;
+  color: hsl(219deg, 12%, 42%);
+}
+.form_container .form div input {
+  margin: 30px 10px;
+  padding: 10px 20px;
+}
+.form_container .form div #private_message {
+  padding: 10px 20px;
+}
+.form_container .close_btn {
   padding: 1px 10px;
   font-size: 32px;
   background-color: hsl(219deg, 85%, 26%);
@@ -40,11 +59,10 @@
   border-radius: 4px;
   transition: 0.15s;
 }
-.close_btn:hover {
+.form_container .close_btn:hover {
   cursor: pointer;
 }
-
-.add_btn {
+.form_container .add_btn {
   background-color: hsl(219deg, 85%, 26%);
   color: white;
   font-weight: 500;
@@ -53,13 +71,23 @@
   width: 6vw;
   margin: 40px;
   border: none;
+  position: absolute;
   border-radius: 5px;
+  right: 40%;
 }
-
-.cancel_btn {
+.form_container .cancel_btn {
   position: absolute;
   top: 5%;
   right: 5%;
+}
+
+#left_group_user_name,
+#private_user_name,
+#reacted_user_name,
+#follow_user_name,
+#comment_user_name,
+#join_group_user_name {
+  text-transform: capitalize;
 }
 
 .private.hidden {

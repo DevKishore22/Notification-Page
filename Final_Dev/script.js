@@ -3,6 +3,7 @@ const page = document.querySelector(".notifictaion_section");
 const unreadNotificationCount = document.querySelector(".unread_count");
 const list = document.querySelector(".list");
 const markAllAsRead = document.querySelector(".mark-all-as-read-btn");
+const overlay = document.querySelector(".overlay");
 
 //drop down menu
 const addNotificationBtn = document.querySelector(".add_notification_btn");
@@ -20,7 +21,7 @@ const privateFormCancelBtn = document.querySelector(".private_form_close_btn");
 const privateNameInput = document.querySelector("#private_user_name");
 const privateImageUrlInput = document.querySelector("#private_image_url");
 const privateTimeInput = document.querySelector("#private_time");
-const privateMessageInput = document.querySelector("#private_mesage");
+const privateMessageInput = document.querySelector("#private_message");
 const privateSubmitBtn = document.querySelector(".private_submit");
 
 //reacted form buttons
@@ -260,10 +261,10 @@ function makeReadedNotification(usersData) {
         .querySelector(`#follow${usersDatum.id}`)
         .addEventListener("click", () => {
           if (
-            !readedNotification.includes(`reacted${usersDatum.id}`) &&
+            !readedNotification.includes(`follow${usersDatum.id}`) &&
             notificationCount > 0
           ) {
-            readedNotification.push(`reacted${usersDatum.id}`);
+            readedNotification.push(`follow${usersDatum.id}`);
             unreadNotificationCount.textContent = --notificationCount;
           }
           document.querySelector(
@@ -358,6 +359,7 @@ function makeReadedNotification(usersData) {
             `#private${usersDatum.id}`
           ).style.backgroundColor = "white";
           document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
+          document;
         });
     }
   });
@@ -367,6 +369,9 @@ function init() {
   fetchJson("http://localhost:3000/users");
 }
 init();
+function toggleOverlay() {
+  overlay.classList.toggle("hidden");
+}
 
 // Event listerners
 addNotificationBtn.addEventListener("click", function (e) {
@@ -377,9 +382,11 @@ addNotificationBtn.addEventListener("click", function (e) {
 // Add private notification form listeners
 privateNotificationBtn.addEventListener("click", function () {
   privateFormContainer.classList.toggle("hidden");
+  toggleOverlay();
 });
 privateFormCancelBtn.addEventListener("click", function () {
   privateFormContainer.classList.toggle("hidden");
+  toggleOverlay();
 });
 privateSubmitBtn.addEventListener("click", function (e) {
   e.preventDefault();
@@ -397,9 +404,11 @@ privateSubmitBtn.addEventListener("click", function (e) {
 //Add reacted notification form listeners
 reactionNotificationBtn.addEventListener("click", function () {
   reactedFormContainer.classList.toggle("hidden");
+  toggleOverlay();
 });
 reactedFormCancelBtn.addEventListener("click", function () {
   reactedFormContainer.classList.toggle("hidden");
+  toggleOverlay();
 });
 reactedSubmitBtn.addEventListener("click", function (e) {
   e.preventDefault();
@@ -417,9 +426,11 @@ reactedSubmitBtn.addEventListener("click", function (e) {
 //Add follow notification form listeners
 followNotificationBtn.addEventListener("click", function () {
   followFormContainer.classList.toggle("hidden");
+  toggleOverlay();
 });
 followFormCancelBtn.addEventListener("click", function () {
   followFormContainer.classList.toggle("hidden");
+  toggleOverlay();
 });
 followSubmitBtn.addEventListener("click", function (e) {
   let followdata = {
@@ -436,9 +447,11 @@ followSubmitBtn.addEventListener("click", function (e) {
 // Add comment to pic notification form listeners
 commentNotificationBtn.addEventListener("click", function () {
   commentFormContainer.classList.toggle("hidden");
+  toggleOverlay();
 });
 commentFormCancelBtn.addEventListener("click", function () {
   commentFormContainer.classList.toggle("hidden");
+  toggleOverlay();
 });
 commentSubmitBtn.addEventListener("click", function (e) {
   e.preventDefault();
@@ -456,9 +469,11 @@ commentSubmitBtn.addEventListener("click", function (e) {
 // Add join group notification form listeners
 leftNotificationBtn.addEventListener("click", function () {
   leftGroupFormContainer.classList.toggle("hidden");
+  toggleOverlay();
 });
 leftGroupFormCancelBtn.addEventListener("click", function (e) {
   leftGroupFormContainer.classList.toggle("hidden");
+  toggleOverlay();
 });
 leftGroupSubmitBtn.addEventListener("click", function (e) {
   e.preventDefault();
@@ -476,9 +491,11 @@ leftGroupSubmitBtn.addEventListener("click", function (e) {
 // Add left group notification form listeners
 joinNotificationBtn.addEventListener("click", function () {
   joinGroupFormContainer.classList.toggle("hidden");
+  toggleOverlay();
 });
 joinGroupFormCancelBtn.addEventListener("click", function (e) {
   joinGroupFormContainer.classList.toggle("hidden");
+  toggleOverlay();
 });
 joinGroupSubmitBtn.addEventListener("click", function (e) {
   e.preventDefault();

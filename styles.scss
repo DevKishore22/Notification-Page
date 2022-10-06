@@ -104,7 +104,7 @@ $Very_dark_blue: hsl(219, 12%, 42%);
       }
       .notification-type {
         font-weight: 500;
-        margin-left: 0.3vw;
+        margin-left: 0.25vw;
         color: $Dark_grayish_blue;
       }
     }
@@ -116,7 +116,7 @@ $Very_dark_blue: hsl(219, 12%, 42%);
 }
 
 .group_name {
-  margin-left: 0.3vw;
+  margin-left: 0.25vw;
   color: $Very_dark_blue;
   font-weight: 800;
   transition: 0.15s;
@@ -134,7 +134,7 @@ $Very_dark_blue: hsl(219, 12%, 42%);
 
 // recated notification
 .reaction_text {
-  margin-left: 0.3vw;
+  margin-left: 0.25vw;
   color: $Very_dark_blue;
   font-weight: 800;
   transition: 0.15s;
@@ -148,11 +148,12 @@ $Very_dark_blue: hsl(219, 12%, 42%);
   margin-left: 3vw;
   margin-top: 1vh;
   margin-bottom: 1vh;
-  width: 80%;
+  width: 77%;
   padding: 10px;
   border-radius: 3px;
   color: $Dark_grayish_blue;
   border: 1px solid $Grayish_blue;
+  transition: 0.15s;
   &:hover {
     background-color: $Light_grayish_blue_1;
     border: none;
@@ -162,13 +163,15 @@ $Very_dark_blue: hsl(219, 12%, 42%);
 // comment notification
 .commend_pic_notification {
   .commented_picture img {
-    width: 40px;
-    height: 40px;
+    width: 39px;
+    height: 39px;
     object-position: center;
     object-fit: cover;
     border-radius: 17%;
-    // &:hover{
-    //   border-color: ;
-    // }
+    transition-delay: 1s;
+    &:hover {
+      border: 2px solid $Light_grayish_blue_1;
+      cursor: pointer;
+    }
   }
 }
