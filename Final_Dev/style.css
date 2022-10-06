@@ -1,0 +1,85 @@
+body {
+  background-color: hsl(205, 33%, 90%);
+}
+.page {
+  width: 375px;
+  height: 700px;
+  margin-left: 100px;
+  font-family: Montserrat;
+  border-radius: 8px;
+  background-color: hsl(0, 0%, 100%);
+  padding: 10px 16px;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+p {
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
+.notification-header-text {
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+.notification-text {
+  font-weight: 800;
+  margin-right: 8px;
+}
+.notification-count {
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+.count {
+  padding: 2px 8px;
+  font-weight: 550;
+  color: hsl(0, 0%, 100%);
+  border-radius: 4px;
+  background-color: hsl(219, 85%, 26%);
+}
+.header-btn {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+.mark-all-as-read-btn {
+  border: none;
+  font-family: Montserrat;
+  color: hsl(219, 12%, 42%);
+  background-color: hsl(0, 0%, 100%);
+}
+
+.notification {
+  height: 40px;
+  width: 350px;
+  padding: 5px 5px;
+  display: flex;
+  flex-direction: row;
+  /* background-color: hsl(210, 60%, 98%); */
+  background-color: aqua;
+  border-radius: 5px;
+}
+.profile-section {
+  margin-right: 10px;
+}
+.profile-picture {
+  height: 40px;
+}
+.notification-info {
+  border: 1px solid aliceblue;
+  width: 250px;
+  height: 15px;
+}
+#unread-sign {
+  height: 40px;
+  width: 40px;
+  color: hsl(1, 90%, 64%);
+  font-size: 40px;
+}
+.notification-time {
+  background-color: blueviolet;
+}

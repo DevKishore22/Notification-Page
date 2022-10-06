@@ -1,0 +1,121 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <link rel="stylesheet" href="./dropdown.css" />
+  </head>
+  <body>
+    <div class="dropdown">
+      <button type="submit" class="add_notification_btn">
+        Add Notification
+      </button>
+      <div class="list">
+        <button class="links">Link 1</button>
+        <button class="links">Link 2</button>
+        <button class="links">Link 3</button>
+        <button class="links">Link 4</button>
+        <button class="links">Link 5</button>
+      </div>
+    </div>
+    <script>
+      const addNotificationBtn = document.querySelector(
+        ".add_notification_btn"
+      );
+      const list = document.querySelector(".list");
+      addNotificationBtn.addEventListener("click", function () {
+        list.classList.toggle("newlist");
+      });
+    </script>
+  </body>
+</html> -->
+
+<html>
+  <head>
+    <title>Dropdown</title>
+    <style>
+      .dropdown {
+        display: flex;
+        justify-content: left;
+      }
+
+      .container {
+        position: relative;
+      }
+
+      .click {
+        background-color: #f85f73;
+      }
+
+      .click:hover {
+        background-color: #b71c1c;
+      }
+
+      .click,
+      .links {
+        padding: 12px;
+
+        font-size: 1.2em;
+
+        font-family: futura Md BT;
+
+        border: none;
+
+        outline: none;
+
+        width: 200px;
+
+        color: #fff;
+
+        transition: 0.3s;
+      }
+
+      .list {
+        position: absolute;
+
+        transform: scaleY(0);
+
+        transform-origin: top;
+
+        transition: 0.3s;
+      }
+
+      .newlist {
+        transform: scaleY(1);
+      }
+
+      .links {
+        background-color: #283c63;
+      }
+
+      .links:hover {
+        background-color: #01579b;
+
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="dropdown">
+      <div class="container">
+        <button class="click">Click Me</button>
+        <div class="list">
+          <button class="links">Link 1</button>
+          <button class="links">Link 2</button>
+          <button class="links">Link 3</button>
+          <button class="links">Link 4</button>
+          <button class="links">Link 5</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      let click = document.querySelector(".click");
+
+      let list = document.querySelector(".list");
+
+      click.addEventListener("click", () => {
+        list.classList.toggle("newlist");
+      });
+    </script>
+  </body>
+</html>

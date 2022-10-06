@@ -1,0 +1,50 @@
+.dropdown {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+}
+
+.add_notification_btn {
+  width: 100%;
+  color: hsl(0deg, 0%, 100%);
+  border: none;
+  border-radius: 4px;
+  background-color: hsl(219deg, 85%, 26%);
+  font-family: Plus Jakarta Sans;
+  font-size: 16px;
+  padding: 10px;
+  transition: 0.15s;
+}
+.add_notification_btn:hover {
+  cursor: pointer;
+  opacity: 0.85;
+  width: 1hw;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  transition: 0.8s;
+}
+
+.links {
+  margin-top: 1vh;
+  color: hsl(0deg, 0%, 100%);
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  font-family: Plus Jakarta Sans;
+  font-size: 16px;
+  background-color: hsl(219deg, 85%, 26%);
+  padding: 10px;
+  transition: 0.15s;
+}
+.links:hover {
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}/*# sourceMappingURL=dropdown.css.map */

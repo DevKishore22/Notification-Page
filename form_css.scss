@@ -1,0 +1,114 @@
+// ### Primary
+$Red: hsl(1, 90%, 64%);
+$Blue: hsl(219, 85%, 26%);
+
+// ### Neutral
+$White: hsl(0, 0%, 100%);
+$Very_light_grayish_blue: hsl(210, 60%, 98%);
+$Light_grayish_blue_1: hsl(211, 68%, 94%);
+$Light_grayish_blue_2: hsl(205, 33%, 90%);
+$Grayish_blue: hsl(219, 14%, 63%);
+$Dark_grayish_blue: hsl(219, 12%, 42%);
+$Very_dark_blue: hsl(219, 12%, 42%);
+
+.form {
+  font-size: 16px;
+  font-family: Plus Jakarta Sans;
+  font-weight: 800;
+  display: flex;
+  flex-direction: column;
+  & label {
+    margin-right: 3vw;
+  }
+  & div {
+    font: 16px;
+    color: $Very_dark_blue;
+    & input {
+      margin: 30px 10px;
+      padding: 10px 20px;
+    }
+  }
+}
+.form_container {
+  position: fixed;
+  top: 3%;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: $Light_grayish_blue_1;
+  border-radius: 9px;
+  width: 42vw;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  transition: all 0.5s;
+}
+
+.close_btn {
+  padding: 1px 10px;
+  font-size: 32px;
+  background-color: $Blue;
+  color: $White;
+  border: none;
+  border-radius: 4px;
+  transition: 0.15s;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.add_btn {
+  background-color: $Blue;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 10px 20px;
+  width: 6vw;
+  margin: 40px;
+  border: none;
+  border-radius: 5px;
+}
+
+.cancel_btn {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+.private {
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.reacted {
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+.follow {
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.comment {
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+.join_group {
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+.left_group {
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+}

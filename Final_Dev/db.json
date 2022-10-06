@@ -1,0 +1,91 @@
+{
+  "users": [
+    {
+      "user_name": "Nathan Peterson ",
+      "notification_type": "reacted to recent your post",
+      "profile_url": "/assets/images/avatar-mark-webber.webp",
+      "reaction_text": "5 end-game strategies to increase your win rate",
+      "posted_time": "Just now",
+      "readed": "false",
+      "id": 1
+    },
+    {
+      "user_name": "Justin",
+      "notification_type": "sent you a private message",
+      "profile_url": "/assets/images/avatar-mark-webber.webp",
+      "message": "Hello,thanks for setting up the Chess club. I've been a member for a few weeks now and I'm  already having lots of fun and improving my game",
+      "posted_time": "10m ago",
+      "readed": "false",
+      "id": 2
+    },
+    {
+      "user_name": "Justin",
+      "notification_type": "followed you",
+      "profile_url": "/assets/images/avatar-angela-gray.webp",
+      "posted_time": "Just now",
+      "readed": "false",
+      "id": 3
+    },
+    {
+      "user_name": "Justin",
+      "notification_type": "commented on your picture",
+      "profile_url": "/assets/images/dog.jpg",
+      "commentedPictureUrl": "/assets/images/cat.jpg",
+      "posted_time": "Just now",
+      "readed": "false",
+      "id": 4
+    },
+    {
+      "user_name": "kiz",
+      "notification_type": "left the group",
+      "profile_url": "/assets/images/dog.jpg",
+      "left_group_name": "Chess club",
+      "posted_time": "Just now",
+      "readed": "false",
+      "id": 5
+    },
+    {
+      "user_name": "Alice",
+      "notification_type": "has joined your group",
+      "profile_url": "/assets/images/avatar-angela-gray.webp",
+      "joining_group_name": "Chess club",
+      "posted_time": "Just now",
+      "readed": "false",
+      "id": 6
+    },
+    {
+      "user_name": "BIBER",
+      "notification_type": "reacted to recent your post",
+      "profile_url": "/assets/images/avatar-angela-gray.webp",
+      "reaction_text": "my first tournoment today!",
+      "posted_time": "just now",
+      "readed": "false",
+      "id": 7
+    },
+    {
+      "user_name": "Justin",
+      "notification_type": "sent you a private message",
+      "profile_url": "/assets/images/avatar-mark-webber.webp",
+      "message": "Hello,thanks for setting up the Chess club. I've been a member for a few weeks now and I'm  already having lots of fun and improving my game",
+      "posted_time": "10m ago",
+      "readed": "false",
+      "id": 8
+    },
+    {
+      "user_name": "KISHORE",
+      "notification_type": "followed you",
+      "profile_url": "/assets/images/avatar-mark-webber.webp",
+      "posted_time": "Just now",
+      "readed": "false",
+      "id": 9
+    },
+    {
+      "user_name": "KISHORE",
+      "notification_type": "commented on your picture",
+      "profile_url": "/assets/images/avatar-mark-webber.webp",
+      "commentedPictureUrl": "/assets/images/dog.jpg",
+      "posted_time": "Just now",
+      "id": 10
+    }
+  ]
+}

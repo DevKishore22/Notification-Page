@@ -1,0 +1,171 @@
+// - Mobile: 375px
+// - Desktop: 1440px
+
+// ### Primary
+$Red: hsl(1, 90%, 64%);
+$Blue: hsl(219, 85%, 26%);
+
+// ### Neutral
+$White: hsl(0, 0%, 100%);
+$Very_light_grayish_blue: hsl(210, 60%, 98%);
+$Light_grayish_blue_1: hsl(211, 68%, 94%);
+$Light_grayish_blue_2: hsl(205, 33%, 90%);
+$Grayish_blue: hsl(219, 14%, 63%);
+$Dark_grayish_blue: hsl(219, 12%, 42%);
+$Very_dark_blue: hsl(219, 12%, 42%);
+* {
+  margin-top: 0;
+  margin-bottom: 0;
+  body {
+    font-family: Plus Jakarta Sans;
+    font-size: 16px;
+    background-color: $Very_light_grayish_blue;
+  }
+}
+
+//page
+.page {
+  width: 45vw;
+  background-color: $White;
+  border-radius: 1rem;
+  position: relative;
+  padding: 1vw 1vh;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+//header section
+.header {
+  display: flex;
+  padding: 20px 20px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5vh;
+  .notification-header-text {
+    display: flex;
+    .notification-text {
+      font-weight: 800;
+    }
+    .unread_count {
+      margin-left: 8px;
+      font-weight: 700;
+      padding: 2px 10px;
+      color: $White;
+      border-radius: 20%;
+      background-color: $Blue;
+      font-weight: 800;
+    }
+  }
+  .mark-all-as-read-btn {
+    border: none;
+    font-size: 1vw;
+    font-weight: 500;
+    color: $Dark_grayish_blue;
+    background-color: $White;
+    transition: 0.15s;
+    &:hover {
+      color: $Blue;
+      cursor: pointer;
+    }
+  }
+}
+
+.notifiy_container {
+  padding: 14px 16px;
+  border-radius: 5px;
+  background-color: $Very_light_grayish_blue;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.6vh;
+  .profile_pic {
+    img {
+      width: 37px;
+      height: 37px;
+      object-position: center;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+    }
+  }
+  .notification_details {
+    flex: 7;
+    .notification_info {
+      display: flex;
+      margin-bottom: 0.3vw;
+      align-items: center;
+      .user-name {
+        font-weight: 800;
+        transition: 0.15s;
+        &:hover {
+          color: $Blue;
+          cursor: pointer;
+        }
+      }
+      .notification-type {
+        font-weight: 500;
+        margin-left: 0.3vw;
+        color: $Dark_grayish_blue;
+      }
+    }
+    .posted-time {
+      display: inline-block;
+      color: $Grayish_blue;
+    }
+  }
+}
+
+.group_name {
+  margin-left: 0.3vw;
+  color: $Very_dark_blue;
+  font-weight: 800;
+  transition: 0.15s;
+  &:hover {
+    color: $Blue;
+    cursor: pointer;
+  }
+}
+
+.dot {
+  font-weight: 800;
+  color: $Red;
+  margin-inline-start: 0.5rem;
+}
+
+// recated notification
+.reaction_text {
+  margin-left: 0.3vw;
+  color: $Very_dark_blue;
+  font-weight: 800;
+  transition: 0.15s;
+  &:hover {
+    color: $Blue;
+    cursor: pointer;
+  }
+}
+
+.expand_notification {
+  margin-left: 3vw;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  width: 80%;
+  padding: 10px;
+  border-radius: 3px;
+  color: $Dark_grayish_blue;
+  border: 1px solid $Grayish_blue;
+  &:hover {
+    background-color: $Light_grayish_blue_1;
+    border: none;
+  }
+}
+
+// comment notification
+.commend_pic_notification {
+  .commented_picture img {
+    width: 40px;
+    height: 40px;
+    object-position: center;
+    object-fit: cover;
+    border-radius: 17%;
+  }
+}

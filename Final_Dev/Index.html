@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Notification Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/form_css.css" />
+    <link rel="stylesheet" href="./dropdown.css" />
+  </head>
+  <body>
+    <script defer src="./script.js"></script>
+    <!-- page -->
+    <div class="page">
+      <!-- notification-header-section -->
+      <div class="header">
+        <div class="notification-header-text">
+          <p class="notification-text">Notifications</p>
+          <div><span class="unread_count">0</span></div>
+        </div>
+        <div>
+          <button class="mark-all-as-read-btn">
+            Mark all as read
+          </button>
+        </div>
+      </div>
+      <div class="notifictaion_section"></div> 
+    </div>
+      <div class="dropdown">
+        <button class="add_notification_btn">Add Notification</button>
+        <div class="list hidden">
+          <button class="private_btn links">Private message</button>
+          <button class="follow_btn links">Follow</button>
+          <button class="join_btn links">Join Group</button>
+          <button class="left_btn links">Left Group</button>
+          <button class="recation_btn links">React to post</button>
+          <button class="comment_btn links">Comment Picture</button>
+        </div>
+    </div>
+    <!-- private form container -->
+    <div class="private form_container hidden">
+      <div class="cancel_btn">
+        <button class="private_form_close_btn close_btn">&times;</button>
+      </div>
+      <div class="form">
+        <form>
+          <div>
+            <label>Name</label>
+            <input type="text" id="private_user_name" />
+          </div>
+          <div>
+            <label>Image URL</label>
+            <input type="text" id="private_image_url" />
+          </div>
+          <div >
+            <label>Time</label>
+            <input type="text" required id="private_time"/>
+          </div>
+          <div>
+            <label>Message</label>
+            <textarea  id="private_mesage" placeholder="type a message"></textarea>
+          </div>
+          <button type="submit" class =" private_submit add_btn">Add</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- reacted form container -->
+    <div class="reacted form_container hidden">
+      <div class="cancel_btn">
+        <button class="reacted_form_close_btn close_btn">&times;</button>
+      </div>
+      <div class="form">
+        <form>
+          <div>
+            <label>Name</label>
+            <input required type="text" id="reacted_user_name" />
+          </div>
+          <div>
+            <label>Image URL</label>
+            <input id="reacted_image_url" type="text" />
+          </div>
+          <div>
+            <label>Time</label>
+            <input  id="reacted_time" type="text" required/>
+          </div>
+          <div>
+            <label>Post Name</label>
+            <input id="reacted_post_name" placeholder="Type Post Name" ></input>
+          </div>
+          <button type="submit" class=" reacted_submit add_btn">Add</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- follow form container -->
+    <div class="follow form_container hidden">
+      <div class="cancel_btn">
+        <button class="follow_form_close_btn close_btn">&times;</button>
+      </div>
+      <div class="form">
+        <form>
+            <div>
+              <label>Name</label>
+              <input required type="text"  id="follow_user_name" />
+            </div>
+            <div>
+              <label>profile URL</label>
+              <input type="text" id="follow_image_url" />
+            </div>
+            <div>
+              <label>Time</label>
+              <input type="text" required id="follow_time" />
+            </div>
+          <button type="submit" class="follow_submit add_btn">Add</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Commented pic form -->
+    <div class="comment form_container hidden">
+      <div class="cancel_btn">
+        <button class="comment_form_close_btn close_btn">&times;</button>
+      </div>
+      <div class="form">
+        <form>
+            <div>
+              <label>Name</label>
+              <input required type="text" id="comment_user_name" />
+            </div>
+            <div>
+              <label>profile URL</label>
+              <input type="text"id="comment_image_url"/>
+            </div>
+            <div>
+              <label>Comment Pic Image URL</label>
+              <input type="text" name="imageUrl" id="commented_pic_image_url"/>
+            </div>
+            <div >
+              <label>Time</label>
+              <input type="text" required id="comment_time"/>
+            </div>
+          <button type="submit" class="comment_submit add_btn">Add</button>
+        </form>
+      </div>
+    </div>
+
+     <!-- join group form -->
+     <div class="join_group form_container hidden">
+      <div class="cancel_btn">
+        <button class="join_group_form_close_btn close_btn">&times;</button>
+      </div>
+      <div class="form">
+        <form>
+            <div >
+              <label>Name</label>
+              <input required type="text" id="join_group_user_name" />
+            </div>
+            <div>
+              <label>profile URL</label>
+              <input type="text" id="join_group_image_url"/>
+            </div>
+            <div>
+              <label>Joining group name
+              </label>
+              <input type="text"name="name" id="join_group_name"/>
+            </div>
+            <div >
+              <label>Time</label>
+              <input type="text" required id="join_group_time"/>
+            </div>
+          <button type="submit" class="join_group_submit add_btn">Add</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- left group form -->
+    <div class="left_group form_container hidden">
+      <div class="cancel_btn">
+        <button class="left_group_form_close_btn close_btn">&times;</button>
+      </div>
+      <div class="form">
+        <form>
+            <div>
+              <label>Name</label>
+              <input required type="text" id="left_group_user_name" />
+            </div>
+            <div>
+              <label>profile URL</label>
+              <input type="text" id="left_group_image_url"/>
+            </div>
+            <div>
+              <label>left group name </label>
+              <input type="text" id="left_group_name"/>
+            </div>
+            <div >
+              <label>Time</label>
+              <input type="text" required id="left_group_time"/>
+            </div>
+          <button type="submit" class="left_group_submit add_btn">Add</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
