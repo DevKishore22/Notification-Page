@@ -9,7 +9,8 @@
 }
 
 .page {
-  width: 45vw;
+  margin: 3% 0%;
+  width: 50vw;
   background-color: hsl(0deg, 0%, 100%);
   border-radius: 1rem;
   position: relative;
@@ -43,7 +44,6 @@
 }
 .header .mark-all-as-read-btn {
   border: none;
-  font-size: 1vw;
   font-weight: 500;
   color: hsl(219deg, 12%, 42%);
   background-color: hsl(0deg, 0%, 100%);
@@ -94,7 +94,6 @@
   color: hsl(219deg, 12%, 42%);
 }
 .notifiy_container .notification_details .posted-time {
-  display: inline-block;
   color: hsl(219deg, 14%, 63%);
 }
 
@@ -128,10 +127,9 @@
 }
 
 .expand_notification {
-  margin-left: 3vw;
+  margin-left: 60px;
   margin-top: 1vh;
   margin-bottom: 1vh;
-  width: 77%;
   padding: 10px;
   border-radius: 3px;
   color: hsl(219deg, 12%, 42%);
@@ -139,8 +137,8 @@
   transition: 0.15s;
 }
 .expand_notification:hover {
+  border: 1px solid hsl(211deg, 68%, 94%);
   background-color: hsl(211deg, 68%, 94%);
-  border: none;
 }
 
 .commend_pic_notification .commented_picture img {
@@ -156,4 +154,17 @@
 .commend_pic_notification .commented_picture img:hover {
   border: 2px solid hsl(211deg, 68%, 94%);
   cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .page {
+    width: 360px;
+    background-color: hsl(0deg, 0%, 100%);
+    border-radius: 1rem;
+    position: absolute;
+    padding: 1vw 1vh;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }/*# sourceMappingURL=styles.css.map */

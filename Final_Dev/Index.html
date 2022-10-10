@@ -2,6 +2,9 @@
 <html lang="en">
   <head>
     <title>Notification Page</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -66,12 +69,11 @@
                 <label>Message</label>
                 <textarea  id="private_message" placeholder="type a message"></textarea>
               </div>
-              <button type="submit" class =" private_submit add_btn">Add</button>
+                <button type="submit" class =" private_submit add_btn">Add</button>
             </form>
           </div>
         </div>
-    
-    
+        
       <!-- reacted form container -->
         <div class="reacted form_container hidden">
           <div class="cancel_btn">
@@ -85,15 +87,15 @@
               </div>
               <div>
                 <label>Image URL</label>
-                <input id="reacted_image_url" type="text" />
+                <input required id="reacted_image_url" type="text" />
               </div>
               <div>
                 <label>Time</label>
-                <input  id="reacted_time" type="text" required/>
+                <input required id="reacted_time" type="text"/>
               </div>
               <div>
                 <label>Post Name</label>
-                <input id="reacted_post_name" placeholder="Type Post Name" ></input>
+                <input required id="reacted_post_name" placeholder="Type Post Name" ></input>
               </div>
               <button type="submit" class=" reacted_submit add_btn">Add</button>
             </form>
@@ -113,11 +115,11 @@
               </div>
               <div>
                 <label>profile URL</label>
-                <input type="text" id="follow_image_url" />
+                <input required type="text" id="follow_image_url" />
               </div>
               <div>
                 <label>Time</label>
-                <input type="text" required id="follow_time" />
+                <input required type="text" id="follow_time" />
               </div>
             <button type="submit" class="follow_submit add_btn">Add</button>
           </form>
@@ -137,15 +139,15 @@
               </div>
               <div>
                 <label>profile URL</label>
-                <input type="text"id="comment_image_url"/>
+                <input required type="text"id="comment_image_url"/>
               </div>
               <div>
                 <label>Comment Pic Image URL</label>
-                <input type="text" name="imageUrl" id="commented_pic_image_url"/>
+                <input required type="text" name="imageUrl" id="commented_pic_image_url"/>
               </div>
               <div >
                 <label>Time</label>
-                <input type="text" required id="comment_time"/>
+                <input required type="text" required id="comment_time"/>
               </div>
             <button type="submit" class="comment_submit add_btn">Add</button>
           </form>
@@ -165,16 +167,16 @@
               </div>
               <div>
                 <label>profile URL</label>
-                <input type="text" id="join_group_image_url"/>
+                <input required type="text" id="join_group_image_url"/>
               </div>
               <div>
                 <label>Joining group name
                 </label>
-                <input type="text"name="name" id="join_group_name"/>
+                <input required type="text"name="name" id="join_group_name"/>
               </div>
               <div >
                 <label>Time</label>
-                <input type="text" required id="join_group_time"/>
+                <input required type="text" id="join_group_time"/>
               </div>
             <button type="submit" class="join_group_submit add_btn">Add</button>
           </form>
@@ -194,15 +196,15 @@
               </div>
               <div>
                 <label>profile URL</label>
-                <input type="text" id="left_group_image_url"/>
+                <input required type="text" id="left_group_image_url"/>
               </div>
               <div>
                 <label>left group name </label>
-                <input type="text" id="left_group_name"/>
+                <input required type="text" id="left_group_name"/>
               </div>
               <div >
                 <label>Time</label>
-                <input type="text" required id="left_group_time"/>
+                <input required type="text" id="left_group_time"/>
               </div>
             <button type="submit" class="left_group_submit add_btn">Add</button>
           </form>

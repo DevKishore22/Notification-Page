@@ -1,6 +1,6 @@
 // - Mobile: 375px
 // - Desktop: 1440px
-
+$Mobile: 600px;
 // ### Primary
 $Red: hsl(1, 90%, 64%);
 $Blue: hsl(219, 85%, 26%);
@@ -25,7 +25,8 @@ $Very_dark_blue: hsl(219, 12%, 42%);
 
 //page
 .page {
-  width: 45vw;
+  margin: 3% 0%;
+  width: 50vw;
   background-color: $White;
   border-radius: 1rem;
   position: relative;
@@ -59,7 +60,6 @@ $Very_dark_blue: hsl(219, 12%, 42%);
   }
   .mark-all-as-read-btn {
     border: none;
-    font-size: 1vw;
     font-weight: 500;
     color: $Dark_grayish_blue;
     background-color: $White;
@@ -109,7 +109,6 @@ $Very_dark_blue: hsl(219, 12%, 42%);
       }
     }
     .posted-time {
-      display: inline-block;
       color: $Grayish_blue;
     }
   }
@@ -145,18 +144,17 @@ $Very_dark_blue: hsl(219, 12%, 42%);
 }
 
 .expand_notification {
-  margin-left: 3vw;
+  margin-left: 60px;
   margin-top: 1vh;
   margin-bottom: 1vh;
-  width: 77%;
   padding: 10px;
   border-radius: 3px;
-  color: $Dark_grayish_blue;
-  border: 1px solid $Grayish_blue;
+  color: hsl(219deg, 12%, 42%);
+  border: 1px solid hsl(219deg, 14%, 63%);
   transition: 0.15s;
   &:hover {
+    border: 1px solid $Light_grayish_blue_1;
     background-color: $Light_grayish_blue_1;
-    border: none;
   }
 }
 
@@ -173,5 +171,18 @@ $Very_dark_blue: hsl(219, 12%, 42%);
       border: 2px solid $Light_grayish_blue_1;
       cursor: pointer;
     }
+  }
+}
+
+@media (max-width: $Mobile) {
+  .page {
+    width: 360px;
+    background-color: $White;
+    border-radius: 1rem;
+    position: absolute;
+    padding: 1vw 1vh;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

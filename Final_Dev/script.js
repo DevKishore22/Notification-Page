@@ -78,13 +78,14 @@ const leftGroupTimeInput = document.querySelector("#left_group_time");
 const leftGroupSubmitBtn = document.querySelector(".left_group_submit");
 
 let notificationCount = 0;
-let readedNotification = [];
+let json = [];
 
-function fetchJson(path) {
+async function fetchJson(path) {
   try {
-    fetch(path)
+    await fetch(path)
       .then((response) => response.json())
       .then((jsonData) => {
+        json = jsonData;
         renderNotificationInUI(jsonData);
       })
       .catch((err) => {
@@ -95,8 +96,8 @@ function fetchJson(path) {
   }
 }
 
-async function postData(url, data) {
-  await fetch(url, {
+function postData(url, data) {
+  fetch(url, {
     method: "POST",
     cache: "no-cache",
     headers: {
@@ -104,7 +105,23 @@ async function postData(url, data) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
-  }).catch((e) => alert(e));
+  }).catch((e) => console.log(e));
+}
+
+async function patchJson(id) {
+  let url = `http://localhost:3000/users/${id}`;
+  const data = {
+    readed: true,
+  };
+  await fetch(url, {
+    method: "PATCH",
+    cache: "no-cache",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  }).catch((e) => console.log(e));
 }
 
 function renderNotificationInUI(jsonData) {
@@ -146,20 +163,20 @@ function renderNotificationDetails(notificationDetails) {
   if (notificationType == "followed you") {
     return `
       <div class="follow_notification notifiy_container read${notificationDetails.id}" id="follow${notificationDetails.id}">
-      <div class="profile_pic">
-        <img src="${notificationDetails.profile_url}" alt="" />
-      </div>
-      <div class="notification_details">
-        <div class="notification_info">
-          <p class="user-name">${notificationDetails.user_name}
-          <span class="notification-type">${notificationDetails.notification_type} <span class ="dot"
-          id="dot${notificationDetails.id}">&#8226;</span></span>
-          </p>
+        <div class="profile_pic">
+          <img src="${notificationDetails.profile_url}" alt="" />
         </div>
-        <div>
-          <p class="posted-time">${notificationDetails.posted_time}</p>
+        <div class="notification_details">
+          <div class="notification_info">
+            <p class="user-name">${notificationDetails.user_name}
+            <span class="notification-type">${notificationDetails.notification_type} <span class ="dot"
+            id="dot${notificationDetails.id}">&#8226;</span></span>
+            </p>
+          </div>
+          <div>
+            <p class="posted-time">${notificationDetails.posted_time}</p>
+          </div>
         </div>
-      </div>
     </div>
     `;
   }
@@ -260,115 +277,125 @@ function makeReadedNotification(usersData) {
       document
         .querySelector(`#follow${usersDatum.id}`)
         .addEventListener("click", () => {
-          if (
-            !readedNotification.includes(`follow${usersDatum.id}`) &&
-            notificationCount > 0
-          ) {
-            readedNotification.push(`follow${usersDatum.id}`);
-            unreadNotificationCount.textContent = --notificationCount;
+          if (!usersDatum.readed) {
+            patchJson(usersDatum.id);
           }
-          document.querySelector(
-            `#follow${usersDatum.id}`
-          ).style.backgroundColor = "white";
-          document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
         });
     }
     if (document.querySelector(`#reacted${usersDatum.id}`)) {
       document
         .querySelector(`#reacted${usersDatum.id}`)
         .addEventListener("click", () => {
-          if (
-            !readedNotification.includes(`reacted${usersDatum.id}`) &&
-            notificationCount > 0
-          ) {
-            readedNotification.push(`reacted${usersDatum.id}`);
-            unreadNotificationCount.textContent = --notificationCount;
+          if (!usersDatum.readed) {
+            patchJson(usersDatum.id);
           }
-          document.querySelector(
-            `#reacted${usersDatum.id}`
-          ).style.backgroundColor = "white";
-          document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
         });
     }
     if (document.querySelector(`#left_group${usersDatum.id}`)) {
       document
         .querySelector(`#left_group${usersDatum.id}`)
         .addEventListener("click", () => {
-          if (
-            !readedNotification.includes(`left_group${usersDatum.id}`) &&
-            notificationCount > 0
-          ) {
-            readedNotification.push(`left_group${usersDatum.id}`);
-            unreadNotificationCount.textContent = --notificationCount;
+          if (!usersDatum.readed) {
+            patchJson(usersDatum.id);
           }
-          document.querySelector(
-            `#left_group${usersDatum.id}`
-          ).style.backgroundColor = "white";
-          document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
         });
     }
-    if (
-      document.querySelector(`#join_group${usersDatum.id}`) &&
-      notificationCount > 0
-    ) {
+    if (document.querySelector(`#join_group${usersDatum.id}`)) {
       document
         .querySelector(`#join_group${usersDatum.id}`)
         .addEventListener("click", () => {
-          if (
-            !readedNotification.includes(`join_group${usersDatum.id}`) &&
-            notificationCount > 0
-          ) {
-            readedNotification.push(`join_group${usersDatum.id}`);
-            unreadNotificationCount.textContent = --notificationCount;
+          if (!usersDatum.readed) {
+            patchJson(usersDatum.id);
           }
-          document.querySelector(
-            `#join_group${usersDatum.id}`
-          ).style.backgroundColor = "white";
-          document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
         });
     }
     if (document.querySelector(`#comment${usersDatum.id}`)) {
       document
         .querySelector(`#comment${usersDatum.id}`)
         .addEventListener("click", () => {
-          if (
-            !readedNotification.includes(`comment${usersDatum.id}`) &&
-            notificationCount > 0
-          ) {
-            readedNotification.push(`comment${usersDatum.id}`);
-            unreadNotificationCount.textContent = --notificationCount;
+          if (!usersDatum.readed) {
+            patchJson(usersDatum.id);
           }
-          document.querySelector(
-            `#comment${usersDatum.id}`
-          ).style.backgroundColor = "white";
-          document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
         });
     }
     if (document.querySelector(`#private${usersDatum.id}`)) {
       document
         .querySelector(`#private${usersDatum.id}`)
         .addEventListener("click", () => {
-          if (
-            !readedNotification.includes(`private${usersDatum.id}`) &&
-            notificationCount > 0
-          ) {
-            readedNotification.push(`private${usersDatum.id}`);
-            unreadNotificationCount.textContent = --notificationCount;
+          if (!usersDatum.readed) {
+            patchJson(usersDatum.id);
           }
-          document.querySelector(
-            `#private${usersDatum.id}`
-          ).style.backgroundColor = "white";
-          document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
-          document;
         });
     }
   });
+
+  usersData.map((usersDatum) => {
+    if (
+      usersDatum.readed &&
+      usersDatum.notification_type === "sent you a private message"
+    ) {
+      document.querySelector(`#private${usersDatum.id}`).style.backgroundColor =
+        "white";
+      document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
+    }
+    if (
+      usersDatum.readed &&
+      usersDatum.notification_type === "reacted to recent your post"
+    ) {
+      document.querySelector(`#reacted${usersDatum.id}`).style.backgroundColor =
+        "white";
+      document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
+    }
+    if (usersDatum.readed && usersDatum.notification_type === "followed you") {
+      document.querySelector(`#follow${usersDatum.id}`).style.backgroundColor =
+        "white";
+      document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
+    }
+    if (
+      usersDatum.readed &&
+      usersDatum.notification_type === "commented on your picture"
+    ) {
+      document.querySelector(`#comment${usersDatum.id}`).style.backgroundColor =
+        "white";
+      document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
+    }
+    if (
+      usersDatum.readed &&
+      usersDatum.notification_type === "left the group"
+    ) {
+      document.querySelector(
+        `#left_group${usersDatum.id}`
+      ).style.backgroundColor = "white";
+      document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
+    }
+    if (
+      usersDatum.readed &&
+      usersDatum.notification_type === "has joined your group"
+    ) {
+      document.querySelector(
+        `#join_group${usersDatum.id}`
+      ).style.backgroundColor = "white";
+      document.querySelector(`#dot${usersDatum.id}`).style.display = "none";
+    }
+  });
+  renderNotificationCount(usersData);
+}
+
+function renderNotificationCount(userData) {
+  let count = 0;
+  userData.map((datum) => {
+    if (!datum.readed) {
+      count++;
+    }
+  });
+  unreadNotificationCount.textContent = count;
 }
 
 function init() {
   fetchJson("http://localhost:3000/users");
 }
 init();
+
 function toggleOverlay() {
   overlay.classList.toggle("hidden");
 }
@@ -396,6 +423,7 @@ privateSubmitBtn.addEventListener("click", function (e) {
     profile_url: `${privateImageUrlInput.value}`,
     message: `${privateMessageInput.value}`,
     posted_time: `${privateTimeInput.value}`,
+    readed: false,
   };
   postData("http://localhost:3000/users", privateData);
   privateFormContainer.classList.toggle("hidden");
@@ -418,6 +446,7 @@ reactedSubmitBtn.addEventListener("click", function (e) {
     profile_url: `${reactedImageUrlInput.value}`,
     reaction_text: `${reactedPostNameInput.value}`,
     posted_time: `${reactedTimeInput.value}`,
+    readed: false,
   };
   postData("http://localhost:3000/users", reactedData);
   reactedFormContainer.classList.toggle("hidden");
@@ -438,6 +467,7 @@ followSubmitBtn.addEventListener("click", function (e) {
     notification_type: "followed you",
     profile_url: `${followImageUrlInput.value}`,
     posted_time: `${followTimeInput.value}`,
+    readed: false,
   };
   e.preventDefault();
   postData("http://localhost:3000/users", followdata);
@@ -461,6 +491,7 @@ commentSubmitBtn.addEventListener("click", function (e) {
     profile_url: `${commentImageUrlInput.value}`,
     commentedPictureUrl: `${commentedPictureURl.value}`,
     posted_time: `${commentTimeInput.value}`,
+    readed: false,
   };
   postData("http://localhost:3000/users", commentData);
   commentFormContainer.classList.toggle("hidden");
@@ -483,6 +514,7 @@ leftGroupSubmitBtn.addEventListener("click", function (e) {
     profile_url: `${leftGroupImageUrlInput.value}`,
     left_group_name: `${leftGroupName.value}`,
     posted_time: `${leftGroupTimeInput.value}`,
+    readed: false,
   };
   postData("http://localhost:3000/users", leftGroupdata);
   leftGroupFormContainer.classList.toggle("hidden");
@@ -505,16 +537,16 @@ joinGroupSubmitBtn.addEventListener("click", function (e) {
     profile_url: `${joinGroupImageUrlInput.value}`,
     joining_group_name: `${joinedGroupName.value}`,
     posted_time: `${joinGroupTimeInput.value}`,
+    readed: false,
   };
   postData("http://localhost:3000/users", joinGroupdata);
   joinGroupFormContainer.classList.toggle("hidden");
 });
 
-markAllAsRead.addEventListener("click", function () {
-  for (let i = 1; i <= notificationCount; i++) {
-    document.querySelector(`.read${i}`).style.backgroundColor = "white";
-    document.querySelector(`#dot${i}`).style.display = "none";
-    unreadNotificationCount.textContent = 0;
-  }
-  notificationCount = 0;
+markAllAsRead.addEventListener("click", () => {
+  json.map((jsonDatum) => {
+    if (!jsonDatum.readed) {
+      patchJson(jsonDatum.id);
+    }
+  });
 });

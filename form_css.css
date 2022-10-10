@@ -20,10 +20,11 @@
   top: 3%;
   left: 50%;
   transform: translate(-50%);
+  width: 40%;
+  padding: 30px;
   background-color: hsl(211deg, 68%, 94%);
   border-radius: 9px;
-  width: 45vw;
-  height: 85%;
+  height: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +41,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font: 16px;
+  font-size: 16px;
   color: hsl(219deg, 12%, 42%);
 }
 .form_container .form div input {
@@ -68,12 +69,12 @@
   font-weight: 500;
   font-size: 16px;
   padding: 10px 20px;
-  width: 6vw;
+  width: 6rem;
   margin: 40px;
   border: none;
   position: absolute;
   border-radius: 5px;
-  right: 40%;
+  left: 35%;
 }
 .form_container .cancel_btn {
   position: absolute;
@@ -118,4 +119,35 @@
 .left_group.hidden {
   visibility: hidden;
   opacity: 0;
+}
+
+@media (max-width: 600px) {
+  .form_container {
+    position: fixed;
+    top: 3%;
+    left: 50%;
+    width: 80%;
+    padding: 30px;
+    transform: translate(-50%);
+    background-color: hsl(211deg, 68%, 94%);
+    border-radius: 9px;
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+  }
+  .add_btn {
+    background-color: hsl(219deg, 85%, 26%);
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 10px 20px;
+    width: 6rem;
+    margin: 40px;
+    border: none;
+    position: absolute;
+    border-radius: 5px;
+    left: 35%;
+  }
 }/*# sourceMappingURL=form_css.css.map */

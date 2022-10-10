@@ -1,58 +1,65 @@
 {
   "users": [
     {
-      "user_name": "Anna Kin",
-      "notification_type": "left the group",
-      "profile_url": "/assets/images/avatar-anna-kim.webp",
-      "left_group_name": "Chess club",
-      "posted_time": "2 weeks ago",
+      "user_name": "Jacob Thompson",
+      "notification_type": "has joined your group",
+      "profile_url": "/assets/images/avatar-jacob-thompson.webp",
+      "joining_group_name": "Chess Club",
+      "posted_time": "3 weeks ago",
+      "readed": false,
       "id": 1
-    },
-    {
-      "user_name": "Nathan Peterson",
-      "notification_type": "reacted to recent your post",
-      "profile_url": "/assets/images/avatar-nathan-peterson.webp",
-      "reaction_text": "5 end-game startegies to increase your win rate",
-      "posted_time": "2 weeks ago",
-      "id": 2
     },
     {
       "user_name": "Kimberly Smith",
       "notification_type": "commented on your picture",
       "profile_url": "/assets/images/avatar-kimberly-smith.webp",
-      "commentedPictureUrl": "/assets/images/image-chess.webp",
-      "posted_time": "1 week ago",
-      "id": 3
+      "commentedPictureUrl": "/assets/images/avatar-angela-gray.webp",
+      "posted_time": "2 weeks ago",
+      "readed": false,
+      "id": 2
     },
     {
       "user_name": "Rizky Hasanuddin",
       "notification_type": "sent you a private message",
       "profile_url": "/assets/images/avatar-rizky-hasanuddin.webp",
-      "message": "Hello,thanks for setting up the Chess club.I've been a member for a few weeks now and I'm already having lots of fun and improving my game.",
+      "message": "Hello iam devloping a UI for desktop and mobile ",
+      "posted_time": "1 weeks ago",
+      "readed": true,
+      "id": 3
+    },
+    {
+      "user_name": "Anna Kin",
+      "notification_type": "left the group",
+      "profile_url": "/assets/images/avatar-anna-kim.webp",
+      "left_group_name": "Chess club",
       "posted_time": "5 days ago",
+      "readed": true,
       "id": 4
-    },
-    {
-      "user_name": "Jacob Thompson",
-      "notification_type": "has joined your group",
-      "profile_url": "/assets/images/avatar-jacob-thompson.webp",
-      "joining_group_name": "Chess Club",
-      "posted_time": "1 day ago",
-      "id": 5
-    },
-    {
-      "user_name": "Angela Gray",
-      "notification_type": "followed you",
-      "profile_url": "/assets/images/avatar-angela-gray.webp",
-      "posted_time": "5m ago",
-      "id": 6
     },
     {
       "user_name": "Mark webber",
       "notification_type": "reacted to recent your post",
       "profile_url": "/assets/images/avatar-mark-webber.webp",
       "reaction_text": "My first tournament today!",
+      "posted_time": "5m ago",
+      "readed": false,
+      "id": 5
+    },
+    {
+      "user_name": "Angela Gray",
+      "notification_type": "followed you",
+      "profile_url": "/assets/images/avatar-angela-gray.webp",
       "posted_time": "1m ago",
+      "readed": false,
+      "id": 6
+    },
+    {
+      "user_name": "Nathan Peterson",
+      "notification_type": "reacted to recent your post",
+      "profile_url": "/assets/images/avatar-nathan-peterson.webp",
+      "reaction_text": "5 end-game startegies to increase your win rate",
+      "posted_time": "Just now",
+      "readed": false,
       "id": 7
     }
   ]

@@ -1,7 +1,7 @@
 // ### Primary
 $Red: hsl(1, 90%, 64%);
 $Blue: hsl(219, 85%, 26%);
-
+$Mobile: 600px;
 // ### Neutral
 $White: hsl(0, 0%, 100%);
 $Very_light_grayish_blue: hsl(210, 60%, 98%);
@@ -32,10 +32,11 @@ $Very_dark_blue: hsl(219, 12%, 42%);
   top: 3%;
   left: 50%;
   transform: translate(-50%);
-  background-color: $Light_grayish_blue_1;
+  width: 40%;
+  padding: 30px;
+  background-color: hsl(211deg, 68%, 94%);
   border-radius: 9px;
-  width: 45vw;
-  height: 85%;
+  height: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,7 +51,7 @@ $Very_dark_blue: hsl(219, 12%, 42%);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font: 16px;
+      font-size: 16px;
       color: $Very_dark_blue;
       & input {
         margin: 30px 10px;
@@ -80,12 +81,12 @@ $Very_dark_blue: hsl(219, 12%, 42%);
     font-weight: 500;
     font-size: 16px;
     padding: 10px 20px;
-    width: 6vw;
+    width: 6rem;
     margin: 40px;
     border: none;
     position: absolute;
     border-radius: 5px;
-    right: 40%;
+    left: 35%;
   }
   .cancel_btn {
     position: absolute;
@@ -139,5 +140,36 @@ $Very_dark_blue: hsl(219, 12%, 42%);
   &.hidden {
     visibility: hidden;
     opacity: 0;
+  }
+}
+
+@media (max-width: $Mobile) {
+  .form_container {
+    position: fixed;
+    top: 3%;
+    left: 50%;
+    width: 80%;
+    padding: 30px;
+    transform: translate(-50%);
+    background-color: hsl(211deg, 68%, 94%);
+    border-radius: 9px;
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+  }
+  .add_btn {
+    background-color: $Blue;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 10px 20px;
+    width: 6rem;
+    margin: 40px;
+    border: none;
+    position: absolute;
+    border-radius: 5px;
+    left: 35%;
   }
 }
